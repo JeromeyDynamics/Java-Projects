@@ -1,4 +1,4 @@
-package class_connecting.inheritance;
+package learning.fundamentals.class_connecting.inheritance;
 
 public class Bicycle extends Vehicle{
     int wheels = 2;
