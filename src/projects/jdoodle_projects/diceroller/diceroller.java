@@ -1,3 +1,5 @@
+package projects.jdoodle_projects.diceroller;
+
 public class diceroller {
     public static void main(String[] args) {
         // java always rounds down so + 1

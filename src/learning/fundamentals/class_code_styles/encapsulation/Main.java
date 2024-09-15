@@ -1,4 +1,4 @@
-package class_code_styles.encapsulation;
+package learning.fundamentals.class_code_styles.encapsulation;
 
 public class Main {
 

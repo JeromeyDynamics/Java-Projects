@@ -1,4 +1,4 @@
-package keywords.super_for_child_class;
+package learning.fundamentals.keywords.super_for_child_class;
 
 public class Hero extends Person {
     String power;

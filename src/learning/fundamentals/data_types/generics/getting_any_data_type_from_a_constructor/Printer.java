@@ -1,4 +1,4 @@
-package data_types.generics.getting_any_data_type_from_a_constructor;
+package learning.fundamentals.data_types.generics.getting_any_data_type_from_a_constructor;
 
 //doesn't have to be T but, most use it to mean type
 public class Printer <T> {

@@ -1,3 +1,5 @@
+package projects.jdoodle_projects.calculator_int;
+
 import java.util.Scanner;
 
 public class calculator_int {

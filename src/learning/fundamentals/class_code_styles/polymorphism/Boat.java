@@ -1,4 +1,4 @@
-package class_code_styles.polymorphism;
+package learning.fundamentals.class_code_styles.polymorphism;
 
 public class Boat extends Vehicle{
 

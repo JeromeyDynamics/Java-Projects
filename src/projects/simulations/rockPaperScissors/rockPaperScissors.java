@@ -1,4 +1,4 @@
-package simulations.rockPaperScissors;
+package projects.simulations.rockPaperScissors;
 
 import java.util.*;
 

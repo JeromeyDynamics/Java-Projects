@@ -1,4 +1,4 @@
-package Java_Projects.learning.java_gui.javax_swing;
+package learning.java_gui.javax_swing;
 
 import javax.swing.JOptionPane;
 

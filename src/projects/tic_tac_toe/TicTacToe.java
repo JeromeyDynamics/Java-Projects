@@ -1,4 +1,4 @@
-package tic_tac_toe;
+package projects.tic_tac_toe;
 
 //imports
 import java.awt.*;

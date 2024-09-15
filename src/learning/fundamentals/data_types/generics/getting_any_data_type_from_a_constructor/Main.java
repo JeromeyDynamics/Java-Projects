@@ -1,4 +1,4 @@
-package data_types.generics.getting_any_data_type_from_a_constructor;
+package learning.fundamentals.data_types.generics.getting_any_data_type_from_a_constructor;
 
 public class Main {
     public static void main(String[] args) {

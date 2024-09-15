@@ -1,3 +1,5 @@
+package learning.fundamentals.loops.infinite_loops;
+
 public class infinite {
     public static void main(String[] args) {
         

@@ -1,3 +1,5 @@
+package learning.fundamentals.conditional_statements.try_and_catch;
+
 public class try_and_catch {
     public static void main(String[] args) {
         //tries code

@@ -1,3 +1,5 @@
+package projects.jdoodle_projects.pizzatime;
+
 public class pizzatime {
     public static void main(String args[]) {
         String pizza[] = {"plain", "pepperoni", "mushrooms", "sausage"}; //

@@ -1,18 +1,20 @@
 package projects.mega_calculator;
 
 //class imports in file hierarchy
-import projects.mega_calculator.math_methods.ComplexNumber;
-import projects.mega_calculator.set_up.setUp;
+import projects.mega_calculator.math_methods.*;
+import projects.mega_calculator.GUI.*;
 
 //gui imports
 
 //java object imports
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         //init methods
         JFrame frame = setUp.GUISetUp();
 
@@ -23,7 +25,7 @@ public class Main {
         int i = 0;
 
         // intro
-        JOptionPane.showMessageDialog(frame, "*********************************************\n" + "___________Calculator___________\n" + "*********************************************");
+        JLabelOutput.labelCreator(frame, "Calculator", "src/projects/mega_calculator/img/calculator.png", JLabel.CENTER, JLabel.TOP);
 
         while (continuing || i == 0) {
             i += 1;
@@ -48,52 +50,40 @@ public class Main {
 
             switch (userInputFormulaNumber) {
                 case 1:
-                    ArrayList<Double> minArray = new ArrayList<Double>();
+                    ArrayList<Double> minArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    minArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(minArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + minArray + '\n' + min(minArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + minArray + '\n' + min(minArray));
 
                     break;
                 case 2:
-                    ArrayList<Double> maxArray = new ArrayList<Double>();
+                    ArrayList<Double> maxArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    maxArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(maxArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + maxArray + '\n' + max(maxArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + maxArray + '\n' + max(maxArray));
 
                     break;
                 case 3:
-                    ArrayList<Double> meanArray = new ArrayList<Double>();
+                    ArrayList<Double> meanArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    meanArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(meanArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + meanArray + '\n' + mean(meanArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + meanArray + '\n' + mean(meanArray));
 
                     break;
                 case 4:
-                    ArrayList<Double> medianArray = new ArrayList<Double>();
+                    ArrayList<Double> medianArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    medianArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(medianArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + medianArray + '\n' + median(medianArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + medianArray + '\n' + median(medianArray));
 
                     break;
 
                 case 5:
-                    ArrayList<Double> standardDeviationArray = new ArrayList<Double>();
+                    ArrayList<Double> standardDeviationArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    standardDeviationArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(standardDeviationArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + standardDeviationArray + '\n' + standardDeviation(standardDeviationArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + standardDeviationArray + '\n' + standardDeviation(standardDeviationArray));
 
                     break;
                 case 6:
-                    ArrayList<Double> varianceArray = new ArrayList<Double>();
+                    ArrayList<Double> varianceArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed();
 
-                    varianceArray = addingNumbersToInputtedArrayListLoopUntilQIsPressed(varianceArray);
-
-                    JOptionPane.showMessageDialog(frame, "Array of numbers: " + varianceArray + '\n' + variance(varianceArray));
+                    JLabelOutput.labelCreator(frame, "Array of numbers: " + varianceArray + '\n' + variance(varianceArray));
 
                     break;
                 case 7:
@@ -116,32 +106,32 @@ public class Main {
                     switch(complexNumberType) {
                         case "add":
                             ComplexNumber sum = complexNumber1.add(complexNumber2);
-                            JOptionPane.showMessageDialog(frame, sum.printableAnswer(sum));
+                            JLabelOutput.labelCreator(frame, sum.printableAnswer(sum));
 
                             break;
                         case "subtract":
                             ComplexNumber difference = complexNumber1.subtract(complexNumber2);
-                            JOptionPane.showMessageDialog(frame, difference.printableAnswer(difference));
+                            JLabelOutput.labelCreator(frame, difference.printableAnswer(difference));
 
                             break;
                         case "multiply":
                             ComplexNumber product = complexNumber1.multiply(complexNumber2);
-                            JOptionPane.showMessageDialog(frame, product.printableAnswer(product));
+                            JLabelOutput.labelCreator(frame, product.printableAnswer(product));
 
                             break;
                         case "divide":
                             ComplexNumber quotient = complexNumber1.divide(complexNumber2);
-                            JOptionPane.showMessageDialog(frame, quotient.printableAnswer(quotient));
+                            JLabelOutput.labelCreator(frame, quotient.printableAnswer(quotient));
 
                             break;
                         default:
-                            JOptionPane.showMessageDialog(frame, "The type of formula used on the complex numbers was inputted wrong: " + complexNumberType);
+                            JLabelOutput.labelCreator(frame, "The type of formula used on the complex numbers was inputted wrong: " + complexNumberType);
                     }
 
                     break;
 
                 default:
-                    JOptionPane.showMessageDialog(frame, "Your formula doesn't exist in this program, please restart!");
+                    JLabelOutput.labelCreator(frame, "Your formula doesn't exist in this program, please restart!");
             }
 
             int endOfProgramOptions = Integer.parseInt(JOptionPane.showInputDialog("""
@@ -168,13 +158,14 @@ public class Main {
 
                     break;
                 default:
-                    JOptionPane.showMessageDialog(frame, "You need to put an available answer!");
+                    JLabelOutput.labelCreator(frame, "You need to put an available answer!");
             }
         }
     }
 
     //___UTILITY_METHODS___
-    public static ArrayList<Double> addingNumbersToInputtedArrayListLoopUntilQIsPressed(ArrayList<Double> inputtedArray) {
+    public static ArrayList<Double> addingNumbersToInputtedArrayListLoopUntilQIsPressed() {
+        ArrayList<Double> addingArray = new ArrayList<>();
         String userInputAddedNumber;
 
         do {
@@ -188,12 +179,12 @@ public class Main {
                 if (!userInputAddedNumber.isEmpty()) {
                     double userInputAddedNumberAsDouble = Double.parseDouble(userInputAddedNumber);
 
-                    inputtedArray.add(userInputAddedNumberAsDouble);
+                    addingArray.add(userInputAddedNumberAsDouble);
                 }
             }
         } while (!userInputAddedNumber.isEmpty());
 
-        return inputtedArray;
+        return addingArray;
     }
 
     // ___MATH_METHODS___
