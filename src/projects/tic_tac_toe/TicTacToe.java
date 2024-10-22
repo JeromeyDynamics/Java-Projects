@@ -1,4 +1,4 @@
-package projects.tic_tac_toe;
+package src.projects.tic_tac_toe;
 
 //imports
 import java.awt.*;
@@ -120,7 +120,7 @@ public class TicTacToe extends JPanel implements ActionListener {
         super.paintComponent(page);
         //draws game board with the lines and background color
         drawBoard(page);
-        // drawUI(page);
+        drawUI(page);
         // drawGame(page);
 
     }
@@ -142,5 +142,34 @@ public class TicTacToe extends JPanel implements ActionListener {
         //since offset is the space in between the boxes we simply add it to the y so that the vertical lines are the width/length of the box away from each other
         page.fillRoundRect(y + offset, x, lineWidth, lineLength, 30, 5);
 
+    }
+
+    public void drawUI(Graphics page) {
+        //creates a gray rectangle to the right of the screen
+        page.setColor(darkGray);
+        page.fillRect(600, 0, 240, 600);
+
+        //setting the font of the words that will be put in the gray rectangle
+        Font font = new Font("Helvetica", Font.PLAIN, 40);
+        page.setFont(font);
+
+        //setting the win counter which will be in the gray rectangle
+        //sets the color of the text for the win counter
+        page.setColor(offWhite);
+        //writes the words "Win Count" in the gray rectangle
+        page.drawString("Win Count", 620, 60);
+        //shows the both players wins using their respective win count variables
+        page.drawString(": " + player1Wins, 724, 140);
+        page.drawString(": " + player2Wins, 724, 210);
+
+        //drawing an X icon to go before the first players number of wins
+        //creates an instance of the "orangex.png"
+        ImageIcon xIcon = new ImageIcon("C:\\Users\\Omega\\Git Hub Repositories\\Java-Projects\\src\\projects\\tic_tac_toe\\orangex.png");
+        //gets the image from the image icon because the ImageIcon was part of the javax.swing package and Image was part of the java.awt package
+        Image xImg = xIcon.getImage();
+        //upscales the x image
+        Image newXImg = xImg.getScaledInstance(54, 54, Image.SCALE_SMOOTH);
+        //puts the x icon image right in front of the score for player 1
+        page.drawImage(newXImg, 658, 94, null);
     }
 }

@@ -1,4 +1,4 @@
-package projects.simulations.twoSidedWar;
+package src.projects.simulations.twoSidedWar;
 
 import java.util.Scanner;
 
