@@ -121,7 +121,7 @@ public class TicTacToe extends JPanel implements ActionListener {
         //draws game board with the lines and background color
         drawBoard(page);
         drawUI(page);
-        // drawGame(page);
+        drawGame(page);
 
     }
 
@@ -167,9 +167,102 @@ public class TicTacToe extends JPanel implements ActionListener {
         ImageIcon xIcon = new ImageIcon("C:\\Users\\Omega\\Git Hub Repositories\\Java-Projects\\src\\projects\\tic_tac_toe\\orangex.png");
         //gets the image from the image icon because the ImageIcon was part of the javax.swing package and Image was part of the java.awt package
         Image xImg = xIcon.getImage();
-        //upscales the x image
+        //upscale the x image
         Image newXImg = xImg.getScaledInstance(54, 54, Image.SCALE_SMOOTH);
+        //transforms the x image into an image icon (doesn't work if you directly use newXImg in the line where the x in draw on to the page
+        ImageIcon newXIcon = new ImageIcon(newXImg);
         //puts the x icon image right in front of the score for player 1
-        page.drawImage(newXImg, 658, 94, null);
+        page.drawImage(newXIcon.getImage(),658, 94, null);
+
+        //draws an O icon to go before the second players number of wins
+        //creates an illusion of an outline of a circle with 2 circles
+        //what will be the outline of the circle
+        page.setColor(offWhite);
+        page.fillOval(656, 160, 60, 60);
+        //the hole in the middle of the filled in circle from the line before
+        page.setColor(darkGray);
+        page.fillOval(668, 170, 38, 38);
+
+        //draws the words for the players turn and once the game is finished, who won or if it is a tie
+        page.setColor(offWhite);
+        Font font1 = new Font("Serif", Font.ITALIC, 36);
+        page.setFont(font1);
+
+        if (gameDone) {
+            //shows winner
+            //player 1 wins
+            if (winner == 1) {
+                //displays "The winner is" as text on the screen
+                page.drawString("The winner is", 620, 300);
+                //draws the X on the screen to signify that play 1 won
+                page.drawImage(xImg, 335, 160, null);
+            }
+
+            //player 2 wins
+            else if (winner == 2) {
+                //displays "The winner is" as text on the screen
+                page.drawString("The winner is", 620, 300);
+                //draws the circle on the screen to signify that player 2 won
+                page.setColor(offWhite);
+                page.fillOval(664, 320, 100, 100);
+                page.setColor(darkGray);
+                page.fillOval(684, 340, 60, 60);
+            }
+
+            //there is a tie
+            else if (winner == 3) {
+                //displays "It's a tie" as text on the screen
+                page.drawString("It's a tie", 660, 356);
+            }
+        } else {
+            //shows whose turn it is
+            Font font2 = new Font("Serif", Font.ITALIC, 40);
+            page.setFont(font2);
+            //displays the players turn depending on if the player is X
+            page.drawString("It's", 700, 320);
+            if (playerIsX) {
+                page.drawString("X's turn", 650, 360);
+            } else {
+                page.drawString("O's turn", 650, 360);
+            }
+        }
+
+
+    }
+
+    public void drawGame(Graphics page) {
+        board[1][2] = 1;
+        board[0][0] = 2;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                //there is no X or O on that space
+                if (board[i][j] == 0) {
+                    //nothing is done since there is X's or O's on that space
+                }
+
+                //there is an X on that space
+                else if (board[i][j] == 1) {
+                    //creates an instance of the "orangex.png"
+                    ImageIcon xIcon = new ImageIcon("C:\\Users\\Omega\\Git Hub Repositories\\Java-Projects\\src\\projects\\tic_tac_toe\\orangex.png");
+                    //gets the image from the image icon because the ImageIcon was part of the javax.swing package and Image was part of the java.awt package
+                    Image xImg = xIcon.getImage();
+                    //upscale the x image
+                    Image newXImg = xImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                    //transforms the x image into an image icon (doesn't work if you directly use newXImg in the line where the x in draw on to the page
+                    ImageIcon newXIcon = new ImageIcon(newXImg);
+                    //puts the x icon image right in front of the score for player 1
+                    page.drawImage(newXIcon.getImage(),60 + offset * i, 60 + offset * j, null);
+                }
+
+                //there is an O on that space
+                else if (board[i][j] == 2) {
+                    page.setColor(offWhite);
+                    page.fillOval(60 + offset * i, 60 + offset * j, 100, 100);
+                    page.setColor(turtleGreen);
+                    page.fillOval(80 + offset * i, 80 + offset * j, 60, 60);
+                }
+            }
+        }
     }
 }
